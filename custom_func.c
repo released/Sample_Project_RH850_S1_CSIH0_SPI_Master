@@ -525,7 +525,7 @@ void hardware_init(void)
         SO:P0_3 , Serial data output signal 
         SS0:P8_0 , hardware SS control
         SS1:P8_3 , hardware SS control
-        SS2:P8_4 , GPIO , default output HIGH
+        SS2:P8_4 , GPIO SS control , default output HIGH
     */
     R_Config_CSIH0_Start();
 
