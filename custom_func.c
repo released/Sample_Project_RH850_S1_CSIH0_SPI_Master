@@ -144,6 +144,42 @@ void delay_ms(unsigned long ms)
     }
 }
 
+unsigned char R_PORT_GetGPIOLevel(unsigned short n,unsigned char Pin)
+{
+    uint16_t PortLevel;
+
+    switch(n)
+    {
+        case 0U:
+            PortLevel = PORT.PPR0;
+            break;
+        case 8U:
+            PortLevel = PORT.PPR8;
+            break;
+        case 9U:
+            PortLevel = PORT.PPR9;
+            break;
+        case 10U:
+            PortLevel = PORT.PPR10;
+            break;
+        case 11U:
+            PortLevel = PORT.PPR11;
+            break;
+        case 0x2C8U:
+            PortLevel = PORT.APPR0;
+            break;
+    }
+    PortLevel &= 1U<<Pin;
+    
+    if(PortLevel == 0U)
+    {
+        return 0U;
+    }
+    else
+    {
+        return 1U;
+    }
+}
 
 unsigned char is_spi_rx_end(void)
 {
